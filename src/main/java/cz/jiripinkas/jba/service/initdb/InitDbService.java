@@ -90,23 +90,23 @@ public class InitDbService {
 			czechTrainingsCategory.setShortName("czech-trainings");
 			czechTrainingsCategory = categoryRepository.save(czechTrainingsCategory);
 
-			Blog blogJavaSkoleni = new Blog();
-			blogJavaSkoleni.setName("java skoleni");
-			blogJavaSkoleni.setUrl("http://novinky.seico.cz/java-skoleni");
-			blogJavaSkoleni.setHomepageUrl("http://www.java-skoleni.cz");
-			blogJavaSkoleni.setShortName("java-skoleni");
-			blogJavaSkoleni.setUser(userAdmin);
-			blogJavaSkoleni.setCategory(czechTrainingsCategory);
-			blogRepository.save(blogJavaSkoleni);
+			// Blog blogJavaSkoleni = new Blog();
+			// blogJavaSkoleni.setName("java skoleni");
+			// blogJavaSkoleni.setUrl("http://novinky.seico.cz/java-skoleni");
+			// blogJavaSkoleni.setHomepageUrl("http://www.java-skoleni.cz");
+			// blogJavaSkoleni.setShortName("java-skoleni");
+			// blogJavaSkoleni.setUser(userAdmin);
+			// blogJavaSkoleni.setCategory(czechTrainingsCategory);
+			// blogRepository.save(blogJavaSkoleni);
 
-			Blog blogSqlSkoleni = new Blog();
-			blogSqlSkoleni.setName("sql skoleni");
-			blogSqlSkoleni.setUrl("http://novinky.seico.cz/sql-skoleni");
-			blogSqlSkoleni.setHomepageUrl("http://www.sql-skoleni.cz");
-			blogSqlSkoleni.setShortName("sql-skoleni");
-			blogSqlSkoleni.setUser(userAdmin);
-			blogSqlSkoleni.setCategory(czechTrainingsCategory);
-			blogRepository.save(blogSqlSkoleni);
+			// Blog blogSqlSkoleni = new Blog();
+			// blogSqlSkoleni.setName("sql skoleni");
+			// blogSqlSkoleni.setUrl("http://novinky.seico.cz/sql-skoleni");
+			// blogSqlSkoleni.setHomepageUrl("http://www.sql-skoleni.cz");
+			// blogSqlSkoleni.setShortName("sql-skoleni");
+			// blogSqlSkoleni.setUser(userAdmin);
+			// blogSqlSkoleni.setCategory(czechTrainingsCategory);
+			// blogRepository.save(blogSqlSkoleni);
 
 		}
 
