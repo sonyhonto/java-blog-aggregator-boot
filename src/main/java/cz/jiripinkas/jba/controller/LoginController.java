@@ -12,4 +12,9 @@ public class LoginController {
 		model.addAttribute("current", "login");
 		return "login";
 	}
+
+	@RequestMapping("/empty")
+	public String empty(){
+		return "myempty";
+	}
 }
