@@ -3,6 +3,8 @@ package cz.jiripinkas.jba.service.initdb;
 import cz.jiripinkas.jba.entity.*;
 import cz.jiripinkas.jba.repository.*;
 import cz.jiripinkas.jba.service.ConfigurationService;
+import cz.jiripinkas.jba.simple.SimpleRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,11 @@ public class InitDbService {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+
+	@Autowired
+	private SimpleRepository simpleRepository;
+
+
 
 	@PostConstruct
 	public void init() throws IOException {
