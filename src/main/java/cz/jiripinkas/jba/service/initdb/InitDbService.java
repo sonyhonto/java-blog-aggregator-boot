@@ -37,11 +37,6 @@ public class InitDbService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
-	@Autowired
-	private SimpleRepository simpleRepository;
-
-
-
 	@PostConstruct
 	public void init() throws IOException {
 		// One-time operation needed to transform old publishedDate to new

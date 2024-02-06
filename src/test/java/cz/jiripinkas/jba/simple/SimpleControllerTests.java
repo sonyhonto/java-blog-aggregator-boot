@@ -24,6 +24,12 @@ public class SimpleControllerTests {
     }
 
     @Test
+    void shouldReturnOkWhenAllIsRequested() throws Exception {
+        this.mvc.perform(get("/simple/all"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     void shouldReturnOkWhenEntityIsCreated() throws Exception{
         this.mvc.perform(post("/simple/create")
                 .contentType("application/json")

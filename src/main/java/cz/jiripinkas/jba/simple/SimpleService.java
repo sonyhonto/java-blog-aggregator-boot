@@ -1,5 +1,6 @@
 package cz.jiripinkas.jba.simple;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class SimpleService {
 
     public void save(SimpleEntity entity) {
         this.simpleRepository.save(entity);
+    }
+
+    public List<SimpleEntity> all() {
+        return this.simpleRepository.findAll();
     }
 
 }
