@@ -63,8 +63,8 @@ public class SimpleController {
     public ResponseEntity<SimpleEntity> postEntity(@RequestBody SimpleEntity entity, UriComponentsBuilder ucb){
         SimpleEntity savedEntity = simpleService.saveAndReturn(entity);
         URI locationOfNewEntity = ucb
-                .path("mycontroller/{name}")
-                .buildAndExpand(savedEntity.getName())
+                .path("simple/{id}")
+                .buildAndExpand(savedEntity.getId())
                 .toUri();
         return ResponseEntity.created(locationOfNewEntity).body(savedEntity);
     }
