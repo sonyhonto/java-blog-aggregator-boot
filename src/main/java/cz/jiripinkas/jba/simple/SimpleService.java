@@ -18,7 +18,7 @@ public class SimpleService {
 
     public Iterable<SimpleEntity> findAllByName(String name) {
         return this.simpleRepository.findAllByName(name);
-    };
+    }
 
     public Optional<SimpleEntity> findById(Integer id) {
         return this.simpleRepository.findById(id);
@@ -26,6 +26,10 @@ public class SimpleService {
 
     public void save(SimpleEntity entity) {
         this.simpleRepository.save(entity);
+    }
+
+    public SimpleEntity saveAndReturn(SimpleEntity entity){
+        return this.simpleRepository.save(entity);
     }
 
     public List<SimpleEntity> all() {
