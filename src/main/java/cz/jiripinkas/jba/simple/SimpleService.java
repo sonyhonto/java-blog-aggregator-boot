@@ -28,12 +28,16 @@ public class SimpleService {
         this.simpleRepository.save(entity);
     }
 
-    public SimpleEntity saveAndReturn(SimpleEntity entity){
+    public SimpleEntity saveAndReturn(SimpleEntity entity) {
         return this.simpleRepository.save(entity);
     }
 
     public List<SimpleEntity> all() {
         return this.simpleRepository.findAll();
+    }
+
+    public void delete(SimpleEntity entity) {
+        this.simpleRepository.delete(entity);
     }
 
 }

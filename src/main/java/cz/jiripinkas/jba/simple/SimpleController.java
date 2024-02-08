@@ -2,6 +2,8 @@ package cz.jiripinkas.jba.simple;
 
 import java.net.URI;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +62,7 @@ public class SimpleController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<SimpleEntity> postEntity(@RequestBody SimpleEntity entity, UriComponentsBuilder ucb){
+    public ResponseEntity<SimpleEntity> postEntity(@RequestBody SimpleEntity entity, UriComponentsBuilder ucb) {
         SimpleEntity savedEntity = simpleService.saveAndReturn(entity);
         URI locationOfNewEntity = ucb
                 .path("simple/{id}")
@@ -74,7 +76,6 @@ public class SimpleController {
 
         if (this.simpleService.findById(id).isPresent()) {
             SimpleEntity entityBase = this.simpleService.findById(id).get();
-
             entityBase.setName(entity.getName());
             entityBase.setTitle(entity.getTitle());
             SimpleEntity updatedEntity = this.simpleService.saveAndReturn(entityBase);
@@ -82,6 +83,19 @@ public class SimpleController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Map<String, Boolean>> delete(@PathVariable Integer id) {
+        Optional<SimpleEntity> optional = this.simpleService.findById(id);
+        if (!optional.isPresent()) {
+            throw new SimpleNotFoundException("SimpleEntity does not exist with id:" + id);
+        }
+        SimpleEntity entity = optional.get();
+        this.simpleService.delete(entity);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 
 }
