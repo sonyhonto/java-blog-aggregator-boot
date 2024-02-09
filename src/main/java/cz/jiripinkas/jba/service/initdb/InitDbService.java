@@ -132,6 +132,18 @@ public class InitDbService {
 			blogSqlSkoleni.setUser(userAdmin);
 			blogSqlSkoleni.setCategory(czechTrainingsCategory);
 			blogRepository.save(blogSqlSkoleni);
+			
+			int fakeBlogsNumber = 20;
+			for (int i = 0; i < fakeBlogsNumber; i++) {
+				Blog blogFake = new Blog();
+				blogFake.setName("Fake Blog " + i);
+				blogFake.setUrl("https://empty-" + i);
+				blogFake.setHomepageUrl("https://empty-" + i);
+				blogFake.setShortName("fake_" + i);
+				blogFake.setUser(userAdmin);
+				blogFake.setCategory(javaCategory);
+				blogRepository.save(blogFake);
+			}
 
 		}
 
