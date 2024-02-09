@@ -1,4 +1,4 @@
-package cz.jiripinkas.jba.simple;
+package cz.jiripinkas.jba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

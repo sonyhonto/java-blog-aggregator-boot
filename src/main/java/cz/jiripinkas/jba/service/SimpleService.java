@@ -1,10 +1,13 @@
-package cz.jiripinkas.jba.simple;
+package cz.jiripinkas.jba.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import cz.jiripinkas.jba.entity.SimpleEntity;
+import cz.jiripinkas.jba.repository.SimpleRepository;
 
 @Service
 public class SimpleService {

@@ -1,4 +1,4 @@
-package cz.jiripinkas.jba.simple;
+package cz.jiripinkas.jba.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import cz.jiripinkas.jba.entity.SimpleEntity;
+import cz.jiripinkas.jba.exception.SimpleNotFoundException;
+import cz.jiripinkas.jba.service.SimpleService;
 
 @Controller
 @RequestMapping("/simple")
