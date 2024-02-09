@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	lang="en">
+<head>
+	<th:block th:include="layout/header :: header-meta('About')"></th:block>
+</head>
+
+<body>
+    <th:block th:include="layout/header :: navbar"></th:block>
+    <div class="container">
+        <h1 style="font-size:25px">About:</h1>
+        <th:block th:include="layout/footer :: footer"></th:block>
+    </div>
+</body>
+
+</html>
