@@ -70,6 +70,7 @@ public class InitDbService {
 			userUser.setName("user");
 			BCryptPasswordEncoder encoderUser = new BCryptPasswordEncoder();
 			userUser.setPassword(encoderUser.encode("user"));
+			userUser.setBio("Default bio, update it");
 			List<Role> rolesUser = new ArrayList<>();
 			rolesUser.add(roleUser);
 			userUser.setRoles(rolesUser);

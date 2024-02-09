@@ -43,6 +43,11 @@ public class UserService {
 		return user;
 	}
 
+	public User findByName(String name){
+		User user = userRepository.findByName(name);
+		return user;
+	}
+
 	@CacheEvict(value = "userCount", allEntries = true)
 	public void save(User user) {
 		user.setEnabled(true);
@@ -53,6 +58,10 @@ public class UserService {
 		roles.add(roleRepository.findByName("ROLE_USER"));
 		user.setRoles(roles);
 
+		userRepository.save(user);
+	}
+
+	public void update(User user) {
 		userRepository.save(user);
 	}
 
