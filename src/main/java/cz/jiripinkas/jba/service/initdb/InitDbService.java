@@ -79,6 +79,24 @@ public class InitDbService {
 			blogSpring.setCategory(springCategory);
 			blogRepository.save(blogSpring);
 
+			Blog blogDuplicateSpring = new Blog();
+			blogDuplicateSpring.setName("Spring Duplicate");
+			blogDuplicateSpring.setUrl("https://wrong.spring.io/blog.atom");
+			blogDuplicateSpring.setHomepageUrl("https://wrong.spring.io/");
+			blogDuplicateSpring.setShortName("springduplicate");
+			blogDuplicateSpring.setUser(userAdmin);
+			blogDuplicateSpring.setCategory(springCategory);
+			blogRepository.save(blogDuplicateSpring);
+
+			Blog blogEmpty = new Blog();
+			blogEmpty.setName("Empty Blog");
+			blogEmpty.setUrl("https://empty");
+			blogEmpty.setHomepageUrl("https://empty");
+			blogEmpty.setShortName("empty");
+			blogEmpty.setUser(userAdmin);
+			blogEmpty.setCategory(springCategory);
+			blogRepository.save(blogEmpty);
+
 			Blog blogJavavids = new Blog();
 			blogJavavids.setName("javavids");
 			blogJavavids.setUrl("http://feeds.feedburner.com/javavids?format=xml");
