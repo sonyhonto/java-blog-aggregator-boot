@@ -91,6 +91,9 @@ public class Blog {
 	@Column(updatable = false)
 	private Integer popularity;
 
+	@Column
+	private Integer likes;
+
 	private Boolean archived;
 
 	public Boolean getArchived() {
@@ -239,6 +242,14 @@ public class Blog {
 
 	public void setLastIndexedDate(Date lastIndexedDate) {
 		this.lastIndexedDate = lastIndexedDate;
+	}
+
+	public Integer getLikes() {
+		return likes;
+	}
+
+	public void setLikes(Integer likes) {
+		this.likes = likes;
 	}
 
 }

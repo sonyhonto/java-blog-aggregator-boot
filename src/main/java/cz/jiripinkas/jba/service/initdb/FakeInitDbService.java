@@ -42,6 +42,7 @@ public class FakeInitDbService {
             blogEmpty.setUrl("https://empty-my");
             blogEmpty.setHomepageUrl("https://empty-my");
             blogEmpty.setShortName("empty-my");
+            blogEmpty.setLikes(5);
             blogEmpty.setUser(userAdmin);
             blogEmpty.setCategory(fakeCategory);
             blogRepository.save(blogEmpty);

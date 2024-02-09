@@ -140,6 +140,7 @@ public class InitDbService {
 				blogFake.setUrl("https://empty-" + i);
 				blogFake.setHomepageUrl("https://empty-" + i);
 				blogFake.setShortName("fake_" + i);
+				blogFake.setLikes(i);
 				blogFake.setUser(userAdmin);
 				blogFake.setCategory(javaCategory);
 				blogRepository.save(blogFake);
