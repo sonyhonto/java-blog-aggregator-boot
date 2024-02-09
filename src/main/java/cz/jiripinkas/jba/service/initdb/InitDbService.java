@@ -64,6 +64,17 @@ public class InitDbService {
 			userAdmin.setRoles(roles);
 			userRepository.save(userAdmin);
 
+			User userUser = new User();
+			userUser.setEnabled(true);
+			userUser.setAdmin(false);
+			userUser.setName("user");
+			BCryptPasswordEncoder encoderUser = new BCryptPasswordEncoder();
+			userUser.setPassword(encoderUser.encode("user"));
+			List<Role> rolesUser = new ArrayList<>();
+			rolesUser.add(roleUser);
+			userUser.setRoles(rolesUser);
+			userRepository.save(userUser);
+
 			Category springCategory = new Category();
 			springCategory.setName("Spring");
 			springCategory.setShortName("spring");
