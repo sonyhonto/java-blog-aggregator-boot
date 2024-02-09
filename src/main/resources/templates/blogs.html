@@ -67,6 +67,9 @@
 			<td>
 				<span class="label label-default" th:if="${blog.category != null}" th:text="${blog.category.name}"></span>
 			</td>
+			<td style="text-align: center;">
+				<span class="badge" th:if="${blog.likes != null}" th:text="${blog.likes}">views</span>
+			</td>
 			<th:block sec:authorize="hasRole('ROLE_ADMIN')">
 				<td>
 					<a th:href="${'/admin/users/' + blog.user.id}" th:text="${blog.user.name}"></a>
