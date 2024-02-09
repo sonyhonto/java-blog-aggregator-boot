@@ -68,6 +68,7 @@
             <th:block sec:authorize="! isAuthenticated()">
               <li th:class="${current == 'login' ? 'active' : ''}"><a href="/login">Login</a></li>
               <li th:class="${current == 'register' ? 'active' : ''}"><a href="/register">Register</a></li>
+              <li th:class="${current == 'help' ? 'active' : ''}"><a href="/help">Help</a></li>
             </th:block>
             <th:block sec:authorize="isAuthenticated()">
               <li th:class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
