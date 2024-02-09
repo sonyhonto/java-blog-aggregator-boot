@@ -71,6 +71,7 @@
               <li th:class="${current == 'help' ? 'active' : ''}"><a href="/help">Help</a></li>
             </th:block>
             <th:block sec:authorize="isAuthenticated()">
+              <li th:class="${current == 'profile' ? 'active' : ''}"><a href="/profile">My profile</a></li>
               <li th:class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
               <li><a href="/logout" th:text="${'Logout '}"></a></li>
             </th:block>

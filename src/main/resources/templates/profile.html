@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+    lang="en">
+
+<head>
+    <th:block th:include="layout/header :: header-meta('My profile')"></th:block>
+</head>
+
+<body>
+
+    <th:block th:include="layout/header :: navbar"></th:block>
+
+    <div class="container">
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>icon</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Name</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Last Name</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>loginname</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <th:block th:include="layout/footer :: footer"></th:block>
+
+    </div>
+</body>
+
+</html>
