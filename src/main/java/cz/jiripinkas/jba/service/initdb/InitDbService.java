@@ -70,6 +70,11 @@ public class InitDbService {
 			springCategory.setShortName("spring");
 			springCategory = categoryRepository.save(springCategory);
 
+			Category javaCategory = new Category();
+			javaCategory.setName("Java");
+			javaCategory.setShortName("java");
+			javaCategory = categoryRepository.save(javaCategory);
+
 			Blog blogSpring = new Blog();
 			blogSpring.setName("Spring");
 			blogSpring.setUrl("https://spring.io/blog.atom");
@@ -85,7 +90,7 @@ public class InitDbService {
 			blogDuplicateSpring.setHomepageUrl("https://wrong.spring.io/");
 			blogDuplicateSpring.setShortName("springduplicate");
 			blogDuplicateSpring.setUser(userAdmin);
-			blogDuplicateSpring.setCategory(springCategory);
+			blogDuplicateSpring.setCategory(javaCategory);
 			blogRepository.save(blogDuplicateSpring);
 
 			Blog blogEmpty = new Blog();
