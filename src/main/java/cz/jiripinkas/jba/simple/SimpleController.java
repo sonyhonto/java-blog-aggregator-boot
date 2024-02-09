@@ -93,9 +93,7 @@ public class SimpleController {
         }
         SimpleEntity entity = optional.get();
         this.simpleService.delete(entity);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.noContent().build();
     }
 
 }

@@ -108,7 +108,7 @@ public class SimpleControllerTests {
         Integer id = JsonPath.read(content, "$.id");
         this.mvc.perform(delete("/simple/delete/{id}", id)
                 .contentType("application/json"))
-                .andExpect(status().isOk());
+                .andExpect(status().isNoContent());
 
     }
 
