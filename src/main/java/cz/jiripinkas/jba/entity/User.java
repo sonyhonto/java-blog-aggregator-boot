@@ -47,6 +47,12 @@ public class User {
 
 	private boolean admin;
 
+	public String firstName;
+
+	public String lastName;
+
+	public String bio;
+
 	public boolean isAdmin() {
 		return admin;
 	}
@@ -109,6 +115,30 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 
 }

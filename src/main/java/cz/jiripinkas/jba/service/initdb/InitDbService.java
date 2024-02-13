@@ -3,6 +3,7 @@ package cz.jiripinkas.jba.service.initdb;
 import cz.jiripinkas.jba.entity.*;
 import cz.jiripinkas.jba.repository.*;
 import cz.jiripinkas.jba.service.ConfigurationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -63,10 +64,27 @@ public class InitDbService {
 			userAdmin.setRoles(roles);
 			userRepository.save(userAdmin);
 
+			User userUser = new User();
+			userUser.setEnabled(true);
+			userUser.setAdmin(false);
+			userUser.setName("user");
+			BCryptPasswordEncoder encoderUser = new BCryptPasswordEncoder();
+			userUser.setPassword(encoderUser.encode("user"));
+			userUser.setBio("Default bio, update it");
+			List<Role> rolesUser = new ArrayList<>();
+			rolesUser.add(roleUser);
+			userUser.setRoles(rolesUser);
+			userRepository.save(userUser);
+
 			Category springCategory = new Category();
 			springCategory.setName("Spring");
 			springCategory.setShortName("spring");
 			springCategory = categoryRepository.save(springCategory);
+
+			Category javaCategory = new Category();
+			javaCategory.setName("Java");
+			javaCategory.setShortName("java");
+			javaCategory = categoryRepository.save(javaCategory);
 
 			Blog blogSpring = new Blog();
 			blogSpring.setName("Spring");
@@ -76,6 +94,24 @@ public class InitDbService {
 			blogSpring.setUser(userAdmin);
 			blogSpring.setCategory(springCategory);
 			blogRepository.save(blogSpring);
+
+			Blog blogDuplicateSpring = new Blog();
+			blogDuplicateSpring.setName("Spring Duplicate");
+			blogDuplicateSpring.setUrl("https://wrong.spring.io/blog.atom");
+			blogDuplicateSpring.setHomepageUrl("https://wrong.spring.io/");
+			blogDuplicateSpring.setShortName("springduplicate");
+			blogDuplicateSpring.setUser(userAdmin);
+			blogDuplicateSpring.setCategory(javaCategory);
+			blogRepository.save(blogDuplicateSpring);
+
+			Blog blogEmpty = new Blog();
+			blogEmpty.setName("Empty Blog");
+			blogEmpty.setUrl("https://empty");
+			blogEmpty.setHomepageUrl("https://empty");
+			blogEmpty.setShortName("empty");
+			blogEmpty.setUser(userAdmin);
+			blogEmpty.setCategory(springCategory);
+			blogRepository.save(blogEmpty);
 
 			Blog blogJavavids = new Blog();
 			blogJavavids.setName("javavids");
@@ -99,14 +135,27 @@ public class InitDbService {
 			// blogJavaSkoleni.setCategory(czechTrainingsCategory);
 			// blogRepository.save(blogJavaSkoleni);
 
-			// Blog blogSqlSkoleni = new Blog();
-			// blogSqlSkoleni.setName("sql skoleni");
-			// blogSqlSkoleni.setUrl("http://novinky.seico.cz/sql-skoleni");
-			// blogSqlSkoleni.setHomepageUrl("http://www.sql-skoleni.cz");
-			// blogSqlSkoleni.setShortName("sql-skoleni");
-			// blogSqlSkoleni.setUser(userAdmin);
-			// blogSqlSkoleni.setCategory(czechTrainingsCategory);
-			// blogRepository.save(blogSqlSkoleni);
+			Blog blogSqlSkoleni = new Blog();
+			blogSqlSkoleni.setName("sql skoleni");
+			blogSqlSkoleni.setUrl("http://novinky.seico.cz/sql-skoleni");
+			blogSqlSkoleni.setHomepageUrl("http://www.sql-skoleni.cz");
+			blogSqlSkoleni.setShortName("sql-skoleni");
+			blogSqlSkoleni.setUser(userAdmin);
+			blogSqlSkoleni.setCategory(czechTrainingsCategory);
+			blogRepository.save(blogSqlSkoleni);
+			
+			int fakeBlogsNumber = 20;
+			for (int i = 0; i < fakeBlogsNumber; i++) {
+				Blog blogFake = new Blog();
+				blogFake.setName("Fake Blog " + i);
+				blogFake.setUrl("https://empty-" + i);
+				blogFake.setHomepageUrl("https://empty-" + i);
+				blogFake.setShortName("fake_" + i);
+				blogFake.setLikes(i);
+				blogFake.setUser(userAdmin);
+				blogFake.setCategory(javaCategory);
+				blogRepository.save(blogFake);
+			}
 
 		}
 
